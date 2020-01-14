@@ -1,0 +1,173 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{float}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{ulem}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{listings}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\begin{document}
+
+\title{ Faktoryzacja liczb całkowitych - część teoretyczna}
+    \author{Krzysztof Zdulski, Kazimierz Kochan, Monika Lewandowska}
+    \date{\today}
+    \maketitle
+    
+\tableofcontents
+\newpage
+
+\section{Dowód 1 - Twierdzenie o dzieleniu z resztą}
+
+Pokazać, że dla dowolnych liczb całkowitych a i b różnych od 0 istnieją jednoznacznie wyznaczone liczby całkowite q i r takie, że  
+
+\(a=q*b+r,\ 0 \leq r<|b|\)
+
+\subsection {Dowód istnienia liczb q i r}
+\(a=q*b+r\) , \(0 \leq r<|b|\)
+
+q- iloraz całkowity
+
+r- reszta z dzielenia
+\bigbreak
+Załóżmy, że \(b>0\)
+\begin{itemize}
+	\item \(q=[\frac{a}{b}]\) \(\wedge \) \(r=a-b*q\)
+	\item \(q\ \leq \frac{a}{b} < q+1\) | \(* b\)
+	\item \(b*q\ \leq a \) < \(b*q +b \)
+	\item Z tego wynika, że \(0 \leq [ r=a - b*q\)] < \( b=|b|\)
+\end{itemize}
+\bigbreak
+Gdy \(b<0\)
+
+\begin{itemize}
+	\item \(q= - [\frac{a}{|b|}]\) \(\wedge \) \(r=a-b*q\)
+\end{itemize}
+i dalej analogicznie jak w przypadku \(b>0\) 
+
+\subsection{Dowód, jednoznaczności wyboru pary liczb q i r}
+\begin{itemize}
+
+\item Załóżmy, że istnieją liczby całkowite \(q_{1}\), \(q_{2}\), \(r_{1}\) i \(r_{2}\) takie, że
+
+ \(0 \leq\ r_{1}, r_{2}<|b|\) \(\wedge \) \(a= q_{1}*b + r_{1} = q_{2}*b + r_{2}\)
+\item \(r_{2}-r_{1} = b*(q_{2}-q_{1})\)
+\item Gdyby \(r_{2} - r_{1} \neq 0\) to \( |b|<|r_{2} - r_{1}|\leq max\{r_{1},r_{2}\}< |b|\)
+,co prowadzi do sprzeczności
+
+\item Więc \(r_{2}-r_{1}=0\), czyli \(r_{1}=r_{2}\) 
+
+\item Stąd \((q_{2}-q_{1})*b=0\), zatem \((q_{2}-q_{1})=0\), więc \(q_{1}=q_{2}\), bo \(b \neq 0\)
+\end{itemize}
+
+Co potwierdza jednoznaczność wyboru pary liczb q i r.
+
+\section{Dowód 2 - \(NWD(a,b)=ax+by\)} 
+
+Pokazać, że istnieją liczby całkowite x i y takie, że \(NWD(a,b)=a*x+b*y\), gdzie $a,b \in \mathbb{Z}$ , z których conajmniej jedna jest różna od 0 
+\begin{itemize}
+
+\item Gdy \(a=0=b\) to \(0=a*0+b*0\) jest NWD(a,b), załóżmy więc, że a lub b jest różne od 0
+
+\item Niech \( I=\{ \) \(k*a+l*b\) \( \wedge \) k,l \(\in \) \(\mathbb{Z} \) \(\cap\ \) \(N_{+}\} \)
+
+\item Ponieważ \(|a|= sign(a)*a+0*b\) \( \wedge\ \) \(|b|=0*b+sign(b)*b\) 
+
+Zatem I nie jest zbiorem pustym
+
+\item Niech \( d=min\{I\} \) \( \wedge \) k,l \( \in \) \(\mathbb{Z}\ \) \( \wedge\ \) \(d=k*a+l*b\)
+
+\item Należy pokazać, że \(d=NWD(a,b)\); wiadomo, że \(d \geq 0\)
+
+\item Dla c \(\in \mathbb{Z}\ \) , \ \(c|a \wedge\ c|b \implies c|d\)
+
+\item Należy udowodnić, że \(d|a \wedge\ d|b\)
+
+\item Liczbę a można zapisać w postaci: \(a= q_{ad}*d\ +   r_{ad}\) (dowód nr. 1)
+
+\item Zatem \(r_{ad} = a - q_{ad} *d = a- q_{ad}*(k*a+l*b) = a-q_{ad}*k*a- q_{ad}*l*b = 
+a*(1-k*q_{ad})- q_{ad}*l*b\)
+\item \(r_{ad}<d\), więc \(r_{ad} \notin I \), bo \(d=min \{I\}\) 
+\item \(r_{ad} \geq 0\), więc z def. zbioru I można wnioskować, że \(r_{ad} = 0\)
+\item Zatem d|a i analogicznie d|b, więc d=NWD(a,b) 
+\end{itemize}
+\newpage
+\section{Dowód 3 - \(NWD(a,b)=1\) ,  \(a|c \)  \(\wedge\) \(b|c\) \(\implies\) \(ab|c\)} 
+Pokazać, że jeżeli liczby a i b są względnie pierwsze, to \(a|c \wedge b|c \implies ab|c\), gdzie \( a,b,c \in \mathbb{Z} \)
+\begin{itemize}
+
+\item Z definicji zbioru liczb względnie pierwszych wynika, że NWD(a,b)=1, gdy a i b są różne
+
+\item Skoro NWD(a,b)=1 wiemy, że (Dowód 2) istnieje taki x,y, że
+
+ \(a*x+b*y=1\)
+
+\item Zatem \(a*c*x+b*c*y=c\)
+
+\item Z założenia b|c, więc ab|ac
+
+\item Analogicznie, gdy a|c to ab|bc
+
+\item Skoro ab dzieli całkowicie zarówno ac jak i bc to dzieli również wyrażenie \(a*c*x+b*c*y=c\)
+
+\item Rozpatrując przypadek dla dowolnej liczby całkowitej m takiej, że \(c=m*a\) wiemy, że b|ma oraz NWD(b,a)=1 to prowadzi do stwierdzenia, że b|m
+
+\item Dla dowolnej liczby całkowitej n takiej, że \(m=b*n\)   
+
+\( c=a*m=a*b*n \), a zatem \(ab|c\)
+\end{itemize}
+\newpage
+\section{Dowód 4 - \( p|ab\implies p|a \vee p|b \)}
+Pokazać, że gdy a,b \( \in \) \(\mathbb{Z}\)
+\( \wedge \) p jest liczbą pierwszą \( p|ab \) \implies \( p|a \vee\ p|b \)
+\bigbreak
+\begin{itemize}
+	\item Załóżmy, że \( p|ab \) , ale \(p \nmid a\) \(\wedge\ \) \(p \nmid b\)
+	\item Więc \(NWD(p,a)=1\) i \(NWD(p,b)=1 \) (są to pary liczb względnie pierwszych)
+	\item Można zatem zapisać, że 
+	
+	\( x_{1}*p+ y_{1}*a=1 \)
+	
+	 \( x_{2}*p+y_{2}*b=1 \)
+	 
+	 Co wynika z dowodu nr 2
+	 \item Mnożymy obustronnie równania i otrzymujemy:
+	 
+	 \(x_{1}*p*x_{2}*p+x_{1}*p*y_{2}*b+y_{1}*a*x_{2}*p+y_{1}*a*y_{2}*b=1 \)
+	 
+	 po przekształceniu
+	
+	 \( p*(x_{1}*x_{2}*p+x_{1}*y_{2}*b+y_{1}*a*x_{2})+ a*b(y_{1}*y_{2})=1\)
+	 \item Z tego wynika, że \(NWD(p,ab) \)=1, co prowadzi do sprzeczności z założeniem, że p|ab
+	 \item Zatem, aby założenie p|ab było prawdziwe to p|a \(\vee \) p|b 
+\end{itemize}
+\newpage
+\section{Dowód 5 - Każda liczba naturalna n daje się przedstawić jako skończony iloczyn samych liczb pierwszych dla \(n \geq 2\) }
+Pokazać, że każdą liczbę całkowitą \(n \geq 2\) można jednoznacznie przedstawić w postaci \(n= p_{1}^{a1}*p_{2}^{a2}*...p_{k}^{a_{k}}\), gdzie \(p_{1},p_{2},...,p_{k}\) są liczbami pierwszymi, \(p_{1}<p_{2}<...<p_{k}\) oraz \(a_{1},a_{2}...,a_{k} \in \mathbb{N}\) 
+\bigbreak
+Inaczej: Każda liczba naturalna daje się przedstawić jako skończony iloczyn samych liczb pierwszych.
+\bigbreak
+Indukcyjnie 
+\bigbreak
+Sprawdzam założenie indukcyjne dla n=2 twierdzenie jest prawdziwe, bo 
+
+\(n=2^1\)
+\bigbreak
+Dla dowolnego m należącego do zbioru liczb naturalnych i m>2 niech twierdzenie będzie prawdziwe dla wszystkich n, \( 1<n<m \)
+\bigbreak
+Jeśli m jest liczbą pierwszą to twierdzenie zachodzi, ponieważ liczba pierwsza ma jedynie dzielnik, który jest liczbą pierwszą.
+\bigbreak
+Gdy liczba m jest złożona, to m można zapisać w postaci \(m=m_{1}*m_{2}\), więc gdy \(1<m_{1},m_{2}<m\) to na mocy założenia indukcyjnego każde z \(m_{1}\) i \(m_{2}\) jest skończonym iloczynem liczb pierwszych. Stąd wynika, że m też jest takim iloczynem.
+
+\end{document}
