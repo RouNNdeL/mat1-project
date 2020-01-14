@@ -153,10 +153,11 @@ Pokazać, że gdy a,b \( \in \) \(\mathbb{Z}\)
 	 \item Zatem, aby założenie p|ab było prawdziwe to p|a \(\vee \) p|b 
 \end{itemize}
 \newpage
-\section{Dowód 5 - Każda liczba naturalna n daje się przedstawić jako skończony iloczyn samych liczb pierwszych dla \(n \geq 2\) }
-Pokazać, że każdą liczbę całkowitą \(n \geq 2\) można jednoznacznie przedstawić w postaci \(n= p_{1}^{a1}*p_{2}^{a2}*...p_{k}^{a_{k}}\), gdzie \(p_{1},p_{2},...,p_{k}\) są liczbami pierwszymi, \(p_{1}<p_{2}<...<p_{k}\) oraz \(a_{1},a_{2}...,a_{k} \in \mathbb{N}\) 
+\section{ Dowód 5 - Każda liczba naturalna n daje się przedstawić jako skończony iloczyn samych liczb pierwszych dla \(n \geq 2 \) }
+
+Pokazać, że każdą liczbę całkowitą \(n \geq 2\) można jednoznacznie przedstawić w postaci \(n= p_{1}^{a1}*p_{2}^{a2}*...p_{k}^{a_{k}}\), gdzie \(p_{1},p_{2},...,p_{k}\) są liczbami pierwszymi, \(p_{1}<p_{2}<...<p_{k}\) oraz \(a_{1},a_{2}...,a_{k} \in \mathbb{N}\)
 \bigbreak
-Inaczej: Każda liczba naturalna daje się przedstawić jako skończony iloczyn samych liczb pierwszych.
+\subsection{ Każda liczba naturalna daje się przedstawić jako skończony iloczyn samych liczb pierwszych}
 \bigbreak
 Indukcyjnie 
 \bigbreak
@@ -169,5 +170,26 @@ Dla dowolnego m należącego do zbioru liczb naturalnych i m>2 niech twierdzenie
 Jeśli m jest liczbą pierwszą to twierdzenie zachodzi, ponieważ liczba pierwsza ma jedynie dzielnik, który jest liczbą pierwszą.
 \bigbreak
 Gdy liczba m jest złożona, to m można zapisać w postaci \(m=m_{1}*m_{2}\), więc gdy \(1<m_{1},m_{2}<m\) to na mocy założenia indukcyjnego każde z \(m_{1}\) i \(m_{2}\) jest skończonym iloczynem liczb pierwszych. Stąd wynika, że m też jest takim iloczynem.
+\bigbreak
+\subsection{Dowód jednoznaczności takiego iloczynu}
+Niech $n>1$ będzie najmniejszą liczbą naturalną posiadającą dwa różne rozkłady na liczby pierwsze:
+\begin{center}
+    $p_1\ldots p_k=n=q_1\ldots q_m$
+\end{center}
+gdzie $p_1\leq\ldots\leq p_k$ i $q_1\leq\ldots\leq q_m$.
+\bigbreak
+Żadna z liczb $p_i$ nie może wystąpić wśród $q_1,\ldots,q_m$ (co działa w obie strony), gdyż wydzielając obie strony przez $p_i$,
+otrzymalibyśmy mniejszą liczbę z dwoma różnymi rozkładami.
+\bigbreak
+Liczba pierwsza $p_1$ dzieli pierwszy iloczyn, a więc też dzieli i drugi:
+\begin{center}
+    $p_1|q_1\ldots q_m$
+\end{center}
+Można zauważyć, że $p_1\perp q_1$, gdyż są to dwie, różne liczby pierwsze.
+\bigbreak
+Na mocy Lematu Euklidesa otrzymujemy: $p_1|q_2\ldots q_m$.
+Kolejno możemy wyeliminować pozostałe liczby $q_i$ z prawego iloczynu doprowadzając do postaci $p_1|1$, co prowadzi do sprzeczności.
+\bigbreak
+Zatem iloczyn liczb pierwszych, będący przedstawieniem jakiejkolwiek liczby całkowitej \(n \geq 2 \) jest wyznaczony jednoznacznie.
 
 \end{document}
