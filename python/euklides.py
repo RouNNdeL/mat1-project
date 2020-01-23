@@ -1,12 +1,16 @@
 import math
 
 def euklides(a, b):
-    while b:
-        a, b = b, a%b
-    return a
+    """return (g, x, y) such that a*x + b*y = g = gcd(a, b)"""
+    x0, x1, y0, y1 = 0, 1, 1, 0
+    while a != 0:
+        (q, a), b = divmod(b, a), a
+        y0, y1 = y1, y0 - q * y1
+        x0, x1 = x1, x0 - q * x1
+    return b, x0, y0
 
-print("nwd(745682347,456214) = ",euklides(745682347,456214))
-print("nwd(85619134,3435467896876) = ",euklides(85619134,3435467896876))
-print("nwd(81245014711244,1246947190002351) = ",euklides(81245014711244,1246947190002351))
-print("nwd(1009471,4765189746161) = ",euklides(1009471,4765189746161))
-print("nwd(235679173645,9940577555123980) = ",euklides(235679173645,9940577555123980))
+#a,b do wpisania
+a = 15734
+b = 65676
+wynik = euklides(a,b)
+print("nwd(",a,",",b,") = ",wynik[0]," = ",a,"*",wynik[1]," + ",b,"*",wynik[2])
