@@ -15,8 +15,6 @@ def pollard(n):
             count += 1
         cycle_size *= 2
         x_fixed = x
+    print("nietrywialny czynnik to: ",factor)
     return factor
 
-print("n = 1742643754, nietrywialny czynnik = ",pollard(1742643754))
-print("n = 75990176589134, nietrywialny czynnik = ",pollard(75990176589134))
-print("n = 99000357799163, nietrywialny czynnik = ",pollard(99000357799163))
